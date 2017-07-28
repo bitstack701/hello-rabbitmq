@@ -1,0 +1,21 @@
+{
+  "name": "hello-rabbitmq",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "step1-send": "DEBUG=bitstack:* node step1/send.js",
+    "step1-receive": "DEBUG=bitstack:* node step1/receive.js",
+    "step2-send": "DEBUG=bitstack:* node step2/send.js",
+    "test": "DEBUG=bitstack:* node step2/test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.5.1",
+    "debug": "^2.6.8",
+    "dotenv": "^4.0.0",
+    "lodash": "^4.17.4"
+  }
+}
