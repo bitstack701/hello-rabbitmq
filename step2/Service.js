@@ -49,10 +49,14 @@ async function ensureConnection({url}) {
 
 module.exports.send = async ({url, q, msg}) => {
   log(`Sending message ${msg}`)
-  await ensureConnection({url})
-  const ch = await conn.createChannel();
-  await ch.assertQueue(q, {durable: true})
-  await ch.sendToQueue(q, new Buffer(msg));
+  try {
+    await ensureConnection({url})
+    const ch = await conn.createChannel();
+    await ch.assertQueue(q, {durable: true})
+    await ch.sendToQueue(q, new Buffer(msg));
+  } catch (e) {
+    console.error(e)
+  }
 }
 
 module.exports.read = async ({url, q, handler}) => {

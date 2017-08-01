@@ -18,14 +18,16 @@ const q = 'hello'
 const msg = 'hello world'
 
 // Service.send({url: rabbitUrl, q, msg})
+/*
 Service.read({url: rabbitUrl, q, handler: ({ch, msg}) => {
   if (msg !== null) {
     log(`Receiving msg`, msg.content.toString());
     ch.ack(msg);
   }
 }})
+*/
 
-setInterval((i)=> {
+setInterval((i) => {
   log('Sending msg', i)
-  Service.send({url: rabbitUrl, q, msg: `${msg} - ${i}`})
+  Service.send({url: rabbitUrl, q, msg: `${msg}`})
 }, 4000)
